@@ -1,6 +1,6 @@
 import data from '../Services/static-posts.json';
 import { CardArticle } from './StyledPostArticle';
-import { CardAdresse } from './StyledPostAdresse';
+import { CardAddress } from './StyledPostAdresse';
 import { CardUserName } from './StyledPostName';
 
 export default function Posts() {
@@ -13,11 +13,11 @@ export default function Posts() {
 			<p>{data[0].contact}</p>
 
 			<address>
-				<CardAdresse>{data[0].mail}</CardAdresse>
+				<CardAddress>{data[0].mail}</CardAddress>
 			</address>
 
 			<address>
-				<CardAdresse>{data[0].mobile}</CardAdresse>
+				<CardAddress>{data[0].mobile}</CardAddress>
 			</address>
 		</CardArticle>
 	);
