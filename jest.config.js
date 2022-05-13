@@ -1,7 +1,3 @@
-/* module.exports = {
-	setupFilesAfterEnv: ['./src/setupTests.js'],
-}; */
-
 const nextJest = require('next/jest');
 const createJestConfig = nextJest({
 	dir: './',

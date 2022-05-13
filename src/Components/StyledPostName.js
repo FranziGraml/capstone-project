@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CardUserName = styled.span`
+const CardUserName = styled.p`
 	font-size: 1.4rem;
 `;
 

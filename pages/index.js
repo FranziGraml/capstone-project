@@ -2,8 +2,8 @@ import Posts from '../src/Components/PostCard';
 
 export default function Home() {
 	return (
-		<div>
+		<main>
 			<Posts />
-		</div>
+		</main>
 	);
 }
