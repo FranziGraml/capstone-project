@@ -1,23 +1,22 @@
-import data from '../Services/static-posts.json';
 import { CardArticle } from './StyledPostArticle';
 import { CardAddress } from './StyledPostAdresse';
 import { CardUserName } from './StyledPostName';
 
-export default function Posts() {
+export default function Posts({ name, content, contact, mail, mobile }) {
 	return (
 		<CardArticle>
-			<CardUserName>{data[0].name}</CardUserName>
+			<CardUserName>{name}</CardUserName>
 
-			<p>{data[0].content}</p>
+			<p>{content}</p>
 
-			<p>{data[0].contact}</p>
+			<p>{contact}</p>
 
 			<address>
-				<CardAddress>{data[0].mail}</CardAddress>
+				<CardAddress>{mail}</CardAddress>
 			</address>
 
 			<address>
-				<CardAddress>{data[0].mobile}</CardAddress>
+				<CardAddress>{mobile}</CardAddress>
 			</address>
 		</CardArticle>
 	);
