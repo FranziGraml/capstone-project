@@ -5,6 +5,30 @@
     "content": "Hallo Welt! Ich bin ab heute für die nächsten 4 Wochen auf Bora Bora...",
     "contact": "Kontakt",
     "mail": "hallo.welt.com",
-    "mobile": "23678"
+    "mobile": "2367654"
+  },
+  {
+    "id": "1234",
+    "name": "Seven",
+    "content": "Lorem Ipsum",
+    "contact": "Kontakt",
+    "mail": "hallo.welt.com",
+    "mobile": "25598078"
+  },
+  {
+    "id": "1235",
+    "name": "Joda",
+    "content": "Ich suche eine Schlafmöglichkeit...",
+    "contact": "Kontakt",
+    "mail": "hallo.welt.com",
+    "mobile": "648893678"
+  },
+  {
+    "id": "1236",
+    "name": "Paddington",
+    "content": "Hätte ein Zimmer frei....",
+    "contact": "Kontakt",
+    "mail": "hallo.welt.com",
+    "mobile": "098343478"
   }
 ]
