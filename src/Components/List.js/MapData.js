@@ -1,6 +1,6 @@
 import Posts from '../PostCard';
 
-export default function PostGrid({ postdata }) {
+export default function PostMap({ postdata }) {
 	return postdata.map(data => {
 		return (
 			<Posts
