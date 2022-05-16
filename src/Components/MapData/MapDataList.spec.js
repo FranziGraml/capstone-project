@@ -61,9 +61,9 @@ describe('MapData', () => {
 		expect(content1).toBeInTheDocument();
 		expect(content2).toBeInTheDocument();
 		expect(content3).toBeInTheDocument();
-		expect(contact[0]).toBeInTheDocument;
-		expect(contact[1]).toBeInTheDocument;
-		expect(contact[2]).toBeInTheDocument;
+		expect(contact[0]).toBeInTheDocument();
+		expect(contact[1]).toBeInTheDocument();
+		expect(contact[2]).toBeInTheDocument();
 		expect(mail1).toBeInTheDocument();
 		expect(mail2).toBeInTheDocument();
 		expect(mail3).toBeInTheDocument();
