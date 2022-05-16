@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import MapData from '../List.js/MapData';
+import MapData from './MapData';
 
 describe('MapData', () => {
 	it('renders three MapData', () => {

@@ -9,4 +9,4 @@ const CardArticle = styled.article`
 	width: 350px;
 	height: 300px;
 `;
-export { CardArticle };
+export default CardArticle;

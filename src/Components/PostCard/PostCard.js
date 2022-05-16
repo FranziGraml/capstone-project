@@ -1,8 +1,8 @@
-import { CardArticle } from './StyledPostArticle';
-import { CardAddress } from './StyledPostAdresse';
-import { CardUserName } from './StyledPostName';
+import CardArticle from '../UI/PostArticle.Styled';
+import CardAddress from '../UI/PostAdresse.Styled';
+import CardUserName from '../UI/PostName.Styled';
 
-export default function Posts({ name, content, contact, mail, mobile }) {
+export default function PostCard({ name, content, contact, mail, mobile }) {
 	return (
 		<CardArticle>
 			<CardUserName>{name}</CardUserName>

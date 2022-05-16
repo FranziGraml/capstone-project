@@ -4,4 +4,4 @@ const CardUserName = styled.p`
 	font-size: 1.4rem;
 `;
 
-export { CardUserName };
+export default CardUserName;

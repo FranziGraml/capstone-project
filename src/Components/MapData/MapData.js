@@ -1,9 +1,9 @@
-import Posts from '../PostCard';
+import PostCard from '../PostCard/PostCard';
 
-export default function PostMap({ postdata }) {
+export default function MapData({ postdata }) {
 	return postdata.map(data => {
 		return (
-			<Posts
+			<PostCard
 				key={data.id}
 				name={data.name}
 				content={data.content}

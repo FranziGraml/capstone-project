@@ -1,5 +1,5 @@
 import getPosts from '../src/Services/get-posts';
-import PostMap from '../src/Components/List.js/MapData';
+import MapData from '../src/Components/MapData/MapData';
 
 export function getStaticProps() {
 	const data = getPosts();
@@ -13,7 +13,7 @@ export function getStaticProps() {
 export default function Home({ data }) {
 	return (
 		<main>
-			<PostMap postdata={data} />
+			<MapData postdata={data} />
 		</main>
 	);
 }
