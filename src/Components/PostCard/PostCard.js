@@ -1,6 +1,6 @@
-import CardArticle from '../UI/PostArticle.styled';
-import CardAddress from '../UI/PostAddress.styled';
-import CardUserName from '../UI/PostName.styled';
+import CardArticle from '../UI/PostArticle.styles';
+import CardAddress from '../UI/PostAddress.styles';
+import CardUserName from '../UI/PostName.styles';
 
 export default function PostCard({ name, content, contact, mail, mobile }) {
 	return (
