@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import FormStyled from '../UI/Form/Form.styles';
+import TextField from '../UI/Form/TextField.styles';
+import Label from '../UI/Form/Label.styles';
+import Input from '../UI/Form/Input.styles';
 
 export default function Form({ onAddPost, onSetAddPost }) {
 	const [nameValue, setNameValue] = useState('');
@@ -25,9 +29,9 @@ export default function Form({ onAddPost, onSetAddPost }) {
 
 	return (
 		<section>
-			<form onSubmit={event => handleSubmit(event)}>
-				<label htmlFor="name">Username</label>
-				<input
+			<FormStyled onSubmit={event => handleSubmit(event)}>
+				<Label htmlFor="name">Username</Label>
+				<Input
 					required
 					name="Username"
 					type="text"
@@ -37,8 +41,8 @@ export default function Form({ onAddPost, onSetAddPost }) {
 					}}
 				/>
 
-				<label htmlFor="name">posts</label>
-				<textarea
+				<Label htmlFor="name">posts</Label>
+				<TextField
 					required
 					maxLength="700"
 					name="posts"
@@ -49,8 +53,8 @@ export default function Form({ onAddPost, onSetAddPost }) {
 					}}
 				/>
 
-				<label htmlFor="name">mail</label>
-				<input
+				<Label htmlFor="name">mail</Label>
+				<Input
 					required
 					name="mail"
 					type="mail"
@@ -60,8 +64,8 @@ export default function Form({ onAddPost, onSetAddPost }) {
 					}}
 				/>
 
-				<label htmlFor="name">mobile</label>
-				<input
+				<Label htmlFor="name">mobile</Label>
+				<Input
 					required
 					name="mobile"
 					type="mobile"
@@ -71,7 +75,7 @@ export default function Form({ onAddPost, onSetAddPost }) {
 					}}
 				/>
 				<button type="submit">Save</button>
-			</form>
+			</FormStyled>
 		</section>
 	);
 }
