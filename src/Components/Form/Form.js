@@ -4,7 +4,7 @@ import TextField from '../UI/Form/TextField.styles';
 import Label from '../UI/Form/Label.styles';
 import Input from '../UI/Form/Input.styles';
 
-export default function Form({ onAddPost, onSetAddPost }) {
+export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
 	const [nameValue, setNameValue] = useState('');
 	const [postValue, setPostValue] = useState('');
 	const [mailValue, setMailValue] = useState('');
@@ -25,50 +25,55 @@ export default function Form({ onAddPost, onSetAddPost }) {
 		setPostValue('');
 		setMailValue('');
 		setMobileValue('');
+		onSetFormButton(false);
 	}
 
 	return (
 		<section>
 			<FormStyled onSubmit={event => handleSubmit(event)}>
-				<Label htmlFor="name">Username</Label>
+				<Label htmlFor="Username">Username</Label>
 				<Input
 					required
 					name="Username"
 					type="text"
+					id="Username"
 					value={nameValue}
 					onChange={event => {
 						setNameValue(event.target.value);
 					}}
 				/>
 
-				<Label htmlFor="name">posts</Label>
+				<Label htmlFor="post">post</Label>
 				<TextField
 					required
 					maxLength="700"
-					name="posts"
+					name="post"
 					type="text"
+					id="post"
 					value={postValue}
 					onChange={event => {
 						setPostValue(event.target.value);
 					}}
 				/>
 
-				<Label htmlFor="name">mail</Label>
+				<Label htmlFor="mail">mail</Label>
 				<Input
 					required
 					name="mail"
 					type="mail"
+					id="mail"
 					value={mailValue}
 					onChange={event => {
 						setMailValue(event.target.value);
 					}}
 				/>
 
-				<Label htmlFor="name">mobile</Label>
+				<Label htmlFor="mobile">mobile</Label>
 				<Input
 					required
 					name="mobile"
 					type="mobile"
+					id="mobile"
 					value={mobileValue}
 					onChange={event => {
 						setMobileValue(event.target.value);

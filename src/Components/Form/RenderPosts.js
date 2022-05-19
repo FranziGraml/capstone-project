@@ -1,4 +1,4 @@
-import uuid from 'react-uuid';
+//import uuid from 'react-uuid';
 import RenderForm from '../UI/Form/RenderPost.styles';
 
 export default function RenderPosts({ onAddPost }) {
@@ -6,7 +6,7 @@ export default function RenderPosts({ onAddPost }) {
 		<>
 			{onAddPost.map(posts => {
 				return (
-					<RenderForm key={uuid}>
+					<RenderForm key={posts.id}>
 						<p>{posts.name}</p>
 						<p>{posts.post}</p>
 						<h2>Kontakt</h2>
