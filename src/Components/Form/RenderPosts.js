@@ -1,5 +1,6 @@
 //import uuid from 'react-uuid';
 import RenderForm from '../UI/Form/RenderPost.styles';
+import Contact from '../UI/Form/ContactHeadline.styles';
 
 export default function RenderPosts({ onAddPost }) {
 	return (
@@ -9,7 +10,7 @@ export default function RenderPosts({ onAddPost }) {
 					<RenderForm key={posts.id}>
 						<p>{posts.name}</p>
 						<p>{posts.post}</p>
-						<h2>Kontakt</h2>
+						<Contact>Kontakt</Contact>
 						<p>{posts.mail}</p>
 						<p>{posts.mobile}</p>
 					</RenderForm>

@@ -56,24 +56,24 @@ export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
 					}}
 				/>
 
-				<Label htmlFor="mail">mail</Label>
+				<Label htmlFor="Mail">Mail</Label>
 				<Input
 					required
 					name="mail"
 					type="mail"
-					id="mail"
+					id="Mail"
 					value={mailValue}
 					onChange={event => {
 						setMailValue(event.target.value);
 					}}
 				/>
 
-				<Label htmlFor="mobile">mobile</Label>
+				<Label htmlFor="Mobile">Mobile</Label>
 				<Input
 					required
 					name="mobile"
 					type="mobile"
-					id="mobile"
+					id="Mobile"
 					value={mobileValue}
 					onChange={event => {
 						setMobileValue(event.target.value);
