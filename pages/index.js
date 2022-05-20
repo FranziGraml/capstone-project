@@ -1,9 +1,9 @@
 import getPosts from '../src/Services/get-posts';
-import MapData from '../src/Components/MapData/MapData';
 import Form from '../src/Components/Form/Form';
 import AddFormButton from '../src/Components/Form/AddFormButton';
-import RenderPosts from '../src/Components/Form/RenderPosts';
-import { useState } from 'react';
+import { saveToLocal, loadFromLocal } from '../src/Components/lib/localStorage';
+import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 
 export function getStaticProps() {
 	const data = getPosts();
@@ -15,8 +15,18 @@ export function getStaticProps() {
 	};
 }
 export default function Home({ data }) {
-	const [addPost, setAddPost] = useState([]);
+	const [addPost, setAddPost] = useState(loadFromLocal('localPosts') ?? data);
 	const [formButton, setFormButton] = useState(false);
+	const MapData = dynamic(() => import('../src/Components/MapData/MapData'), {
+		ssr: false,
+	});
+	const RenderPosts = dynamic(() => import('../src/Components/Form/RenderPosts'), {
+		ssr: false,
+	});
+
+	useEffect(() => {
+		saveToLocal('localPosts', addPost);
+	}, [addPost]);
 
 	return (
 		<main>
