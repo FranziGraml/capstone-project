@@ -13,13 +13,13 @@ export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		onSetAddPost([
-			...onAddPost,
 			{
 				name: nameValue,
 				post: postValue,
 				mail: mailValue,
 				mobile: mobileValue,
 			},
+			...onAddPost,
 		]);
 		setNameValue('');
 		setPostValue('');
