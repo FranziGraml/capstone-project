@@ -37,7 +37,6 @@ export default function Home({ data }) {
 					onSetFormButton={setFormButton}
 				/>
 			</div>
-
 			<RenderPosts onAddPost={addPost} onSetAddPost={setAddPost} />
 		</main>
 	);

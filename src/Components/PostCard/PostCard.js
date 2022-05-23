@@ -1,8 +1,8 @@
 import CardArticle from '../UI/PostArticle.styles';
 import CardAddress from '../UI/PostAddress.styles';
 import CardUserName from '../UI/PostName.styles';
+import ContactCard from '../UI/PostContact.styles';
 import DeleteButton from '../Form/DeleteButton';
-import Contact from '../UI/Form/ContactHeadline.styles';
 
 export default function PostCard({ name, content, mail, mobile, id, onAddPost, onSetAddPost }) {
 	return (
@@ -11,7 +11,7 @@ export default function PostCard({ name, content, mail, mobile, id, onAddPost, o
 
 			<p>{content}</p>
 
-			<Contact>Kontakt</Contact>
+			<ContactCard>Kontakt</ContactCard>
 
 			<CardAddress>{mail}</CardAddress>
 
