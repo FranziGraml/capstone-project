@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+/* import styled from 'styled-components';
 
 const RenderForm = styled.div`
 	gap: 15px;
@@ -9,4 +9,4 @@ const RenderForm = styled.div`
 	width: 350px;
 `;
 
-export default RenderForm;
+export default RenderForm; */

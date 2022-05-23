@@ -1,19 +1,21 @@
-//import uuid from 'react-uuid';
-import RenderForm from '../UI/Form/RenderPost.styles';
-import Contact from '../UI/Form/ContactHeadline.styles';
+import PostCard from '../PostCard/PostCard';
 
-export default function RenderPosts({ onAddPost }) {
+export default function RenderPosts({ onAddPost, onSetAddPost }) {
 	return (
 		<>
 			{onAddPost.map(posts => {
 				return (
-					<RenderForm key={posts.id}>
-						<p>{posts.name}</p>
-						<p>{posts.post}</p>
-						<Contact>Kontakt</Contact>
-						<p>{posts.mail}</p>
-						<p>{posts.mobile}</p>
-					</RenderForm>
+					<ul key={posts.id}>
+						<PostCard
+							name={posts.name}
+							content={posts.post}
+							mail={posts.mail}
+							mobile={posts.mobile}
+							id={posts.id}
+							onAddPost={onAddPost}
+							onSetAddPost={onSetAddPost}
+						/>
+					</ul>
 				);
 			})}
 		</>

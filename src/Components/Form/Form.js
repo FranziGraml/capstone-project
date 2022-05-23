@@ -3,6 +3,7 @@ import FormStyled from '../UI/Form/Form.styles';
 import TextField from '../UI/Form/TextField.styles';
 import Label from '../UI/Form/Label.styles';
 import Input from '../UI/Form/Input.styles';
+import { nanoid } from 'nanoid';
 
 export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
 	const [nameValue, setNameValue] = useState('');
@@ -18,6 +19,7 @@ export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
 				post: postValue,
 				mail: mailValue,
 				mobile: mobileValue,
+				id: nanoid(),
 			},
 			...onAddPost,
 		]);

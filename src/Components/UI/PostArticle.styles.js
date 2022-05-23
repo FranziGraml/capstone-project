@@ -6,6 +6,6 @@ const CardArticle = styled.article`
 	margin: 10px;
 	border-radius: 10px;
 	box-shadow: 15px 4px 4px Lavender;
-	width: 350px;
+	width: 300px;
 `;
 export default CardArticle;

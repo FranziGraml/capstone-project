@@ -17,6 +17,7 @@ export function getStaticProps() {
 export default function Home({ data }) {
 	const [addPost, setAddPost] = useState(loadFromLocal('localPosts') ?? data);
 	const [formButton, setFormButton] = useState(false);
+
 	const MapData = dynamic(() => import('../src/Components/MapData/MapData'), {
 		ssr: false,
 	});
@@ -27,6 +28,7 @@ export default function Home({ data }) {
 	useEffect(() => {
 		saveToLocal('localPosts', addPost);
 	}, [addPost]);
+	console.log('posts: ' + JSON.stringify(addPost));
 
 	return (
 		<main>
@@ -38,7 +40,8 @@ export default function Home({ data }) {
 					onSetFormButton={setFormButton}
 				/>
 			</div>
-			<RenderPosts onAddPost={addPost} />
+
+			<RenderPosts onAddPost={addPost} onSetAddPost={setAddPost} />
 			<MapData postdata={data} />
 		</main>
 	);
