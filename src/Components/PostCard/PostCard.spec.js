@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import PostsCard from './PostCard';
 
 describe('Posts', () => {
-	it('renders five strings', () => {
+	it('renders five strings and a button', () => {
 		render(
 			<PostsCard
 				id="123"

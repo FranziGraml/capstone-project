@@ -25,7 +25,6 @@ export default function Home({ data }) {
 	useEffect(() => {
 		saveToLocal('localPosts', addPost);
 	}, [addPost]);
-	console.log('posts: ' + JSON.stringify(addPost));
 
 	return (
 		<main>

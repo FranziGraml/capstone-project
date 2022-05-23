@@ -5,7 +5,7 @@ const CardArticle = styled.article`
 	padding: 10px;
 	margin: 10px;
 	border-radius: 10px;
-	box-shadow: 15px 4px 4px Lavender;
+	box-shadow: 15px 10px 4px Lavender;
 	width: 300px;
 `;
 export default CardArticle;
