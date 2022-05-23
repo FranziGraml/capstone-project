@@ -18,9 +18,6 @@ export default function Home({ data }) {
 	const [addPost, setAddPost] = useState(loadFromLocal('localPosts') ?? data);
 	const [formButton, setFormButton] = useState(false);
 
-	const MapData = dynamic(() => import('../src/Components/MapData/MapData'), {
-		ssr: false,
-	});
 	const RenderPosts = dynamic(() => import('../src/Components/Form/RenderPosts'), {
 		ssr: false,
 	});
@@ -42,7 +39,6 @@ export default function Home({ data }) {
 			</div>
 
 			<RenderPosts onAddPost={addPost} onSetAddPost={setAddPost} />
-			<MapData postdata={data} />
 		</main>
 	);
 }
