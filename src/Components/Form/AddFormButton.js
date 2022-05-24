@@ -1,4 +1,4 @@
-import ButtonAdd from '../UI/Button/AddButton.styles';
+import ButtonAdd from '../UI/Form/Button/AddButton.styles';
 
 export default function AddFormButton({ onSetFormButton }) {
 	return (
