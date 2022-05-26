@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 const ButtonAdd = styled.button`
-    text-transform: none;
-	border-radius: 50%;
 	border: none;
-	background-color: lavender;
+	background: none;
 	display: flex;
-	padding: 5px 5px;
+	padding: 5px 30px;
 	cursor: pointer:
 	
 `;
