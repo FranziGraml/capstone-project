@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NavWrap = styled.section`
+const NavWrap = styled.nav`
 	display: flex;
 `;
 

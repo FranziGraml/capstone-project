@@ -9,14 +9,14 @@ export default function Navbar() {
 		<NavWrap>
 			<NavList>
 				<li>
-					<Link passHref href="/">
+					<Link href="/">
 						<NavigationButton type="button">
 							<Icon variant="home" />
 						</NavigationButton>
 					</Link>
 				</li>
 				<li>
-					<Link passHref href="/posts">
+					<Link href="/posts">
 						<NavigationButton type="button">
 							<Icon variant="board" />
 						</NavigationButton>

@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
 import { validatePostMail } from '../lib/validation';
 import { validatePostMobile } from '../lib/validation';
 
-export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
+export default function Form({ onPosts, onSetPosts, onSetIsFormActive }) {
 	const [nameValue, setNameValue] = useState('');
 	const [postValue, setPostValue] = useState('');
 	const [mailValue, setMailValue] = useState('');
@@ -17,7 +17,7 @@ export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		if (validatePostMobile(mobileValue) && validatePostMail(mailValue)) {
-			onSetAddPost([
+			onSetPosts([
 				{
 					name: nameValue,
 					post: postValue,
@@ -25,13 +25,13 @@ export default function Form({ onAddPost, onSetAddPost, onSetFormButton }) {
 					mobile: mobileValue,
 					id: nanoid(),
 				},
-				...onAddPost,
+				...onPosts,
 			]);
 			setNameValue('');
 			setPostValue('');
 			setMailValue('');
 			setMobileValue('');
-			onSetFormButton(false);
+			onSetIsFormActive(false);
 			setIsError(false);
 		} else {
 			setIsError(true);

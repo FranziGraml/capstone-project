@@ -1,8 +1,8 @@
 import ButtonDelete from '../UI/Form/Button/DeleteButton.styles';
 
-export default function DeleteButton({ id, onAddPost, onSetAddPost }) {
+export default function DeleteButton({ id, onPosts, onSetPosts }) {
 	function deletePost() {
-		onSetAddPost(onAddPost.filter(post => post.id !== id));
+		onSetPosts(onPosts.filter(post => post.id !== id));
 	}
 
 	return (
