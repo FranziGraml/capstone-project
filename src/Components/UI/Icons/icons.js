@@ -5,12 +5,24 @@ const svg = {
 	plus: 'M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M11,6H13V9H16V11H13V14H11V11H8V9H11V6Z',
 	send: 'M12,7L17,12H14V16H10V12H7L12,7M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z',
 };
-function Icon({ variant, size = '33px', color = 'black' }) {
+function Icon({ variant, size = '33px', color = 'currentColor' }) {
 	return (
-		<svg style={{ width: size, height: size }} viewBox="0 0 24 24">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			style={{ width: size, height: size }}
+		>
 			<path fill={color} d={svg[variant]} />
 		</svg>
 	);
 }
 
 export default Icon;
+
+/* function Icon({ variant, size = '33px', color = 'currentColor' }) {
+	return (
+		<svg style={{ width: size, height: size }} viewBox="0 0 24 24">
+			<path fill={color} d={svg[variant]} />
+		</svg>
+	);
+} */

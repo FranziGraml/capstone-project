@@ -7,6 +7,7 @@ const ButtonSubmit = styled.button`
 	padding: 8px;
 	cursor: pointer;
 	justify-content: center;
+	color: var(--bright-green);
 `;
 
 export default ButtonSubmit;

@@ -17,7 +17,7 @@ export default function Navbar() {
 				</li>
 				<li>
 					<Link href="/posts">
-						<NavigationButton type="button">
+						<NavigationButton type="button" variant="board">
 							<Icon variant="board" />
 						</NavigationButton>
 					</Link>
