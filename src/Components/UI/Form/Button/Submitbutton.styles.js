@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-const ButtonAdd = styled.button`
+const ButtonSubmit = styled.button`
 	border: none;
 	background: none;
 	display: flex;
-	padding: 5px 30px;
+	padding: 8px;
 	cursor: pointer;
+	justify-content: center;
 `;
 
-export default ButtonAdd;
+export default ButtonSubmit;

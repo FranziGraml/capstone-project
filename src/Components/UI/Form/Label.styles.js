@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 const Label = styled.label`
 	padding: 3px;
-	color: ; lightgrey
+	color: black;
 `;
 
 export default Label;

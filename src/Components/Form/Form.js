@@ -6,6 +6,8 @@ import Input from '../UI/Form/Input.styles';
 import { nanoid } from 'nanoid';
 import { validatePostMail } from '../lib/validation';
 import { validatePostMobile } from '../lib/validation';
+import Icon from '../UI/Icons/icons';
+import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 
 export default function Form({ onPosts, onSetPosts, onSetIsFormActive }) {
 	const [nameValue, setNameValue] = useState('');
@@ -92,7 +94,9 @@ export default function Form({ onPosts, onSetPosts, onSetIsFormActive }) {
 						setMobileValue(event.target.value);
 					}}
 				/>
-				<button type="submit">Save</button>
+				<ButtonSubmit type="submit">
+					<Icon variant="send" />
+				</ButtonSubmit>
 			</FormStyled>
 		</section>
 	);
