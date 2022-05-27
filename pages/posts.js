@@ -33,9 +33,9 @@ export default function Posts({ data }) {
 				Add new Post
 			</ButtonAdd>
 			<FormWrapper isFormActive={isFormActive}>
-				<Form onPosts={posts} onSetPosts={setPosts} onSetIsFormActive={setIsFormActive} />
+				<Form posts={posts} onSetPosts={setPosts} onSetIsFormActive={setIsFormActive} />
 			</FormWrapper>
-			<RenderPosts onPosts={posts} onSetPosts={setPosts} />
+			<RenderPosts posts={posts} onSetPosts={setPosts} />
 		</main>
 	);
 }

@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
 import { validatePostMail } from '../lib/validation';
 import { validatePostMobile } from '../lib/validation';
 
-export default function Form({ onPosts, onSetPosts, onSetIsFormActive }) {
+export default function Form({ posts, onSetPosts, onSetIsFormActive }) {
 	const [nameValue, setNameValue] = useState('');
 	const [postValue, setPostValue] = useState('');
 	const [mailValue, setMailValue] = useState('');
@@ -25,7 +25,7 @@ export default function Form({ onPosts, onSetPosts, onSetIsFormActive }) {
 					mobile: mobileValue,
 					id: nanoid(),
 				},
-				...onPosts,
+				...posts,
 			]);
 			setNameValue('');
 			setPostValue('');
