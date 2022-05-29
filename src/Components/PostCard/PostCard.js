@@ -1,10 +1,10 @@
-import CardArticle from '../UI/PostArticle.styles';
-import CardAddress from '../UI/PostAddress.styles';
-import CardUserName from '../UI/PostName.styles';
-import ContactCard from '../UI/PostContact.styles';
+import CardArticle from '../UI/PostCard/PostArticle.styles';
+import CardAddress from '../UI/PostCard/PostAddress.styles';
+import CardUserName from '../UI/PostCard/PostName.styles';
+import ContactCard from '../UI/PostCard/PostContact.styles';
 import DeleteButton from '../Form/DeleteButton';
 
-export default function PostCard({ name, content, mail, mobile, id, onAddPost, onSetAddPost }) {
+export default function PostCard({ name, content, mail, mobile, id, posts, onSetPosts }) {
 	return (
 		<CardArticle>
 			<CardUserName>{name}</CardUserName>
@@ -17,7 +17,7 @@ export default function PostCard({ name, content, mail, mobile, id, onAddPost, o
 
 			<CardAddress>{mobile}</CardAddress>
 
-			<DeleteButton id={id} onAddPost={onAddPost} onSetAddPost={onSetAddPost} />
+			<DeleteButton id={id} posts={posts} onSetPosts={onSetPosts} />
 		</CardArticle>
 	);
 }

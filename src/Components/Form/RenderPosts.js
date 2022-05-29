@@ -1,19 +1,19 @@
 import PostCard from '../PostCard/PostCard';
 
-export default function RenderPosts({ onAddPost, onSetAddPost }) {
+export default function RenderPosts({ posts, onSetPosts }) {
 	return (
 		<>
-			{onAddPost.map(posts => {
+			{posts.map(post => {
 				return (
-					<ul key={posts.id}>
+					<ul key={post.id}>
 						<PostCard
-							name={posts.name}
-							content={posts.post}
-							mail={posts.mail}
-							mobile={posts.mobile}
-							id={posts.id}
-							onAddPost={onAddPost}
-							onSetAddPost={onSetAddPost}
+							name={post.name}
+							content={post.post}
+							mail={post.mail}
+							mobile={post.mobile}
+							id={post.id}
+							posts={posts}
+							onSetPosts={onSetPosts}
 						/>
 					</ul>
 				);
