@@ -8,6 +8,9 @@ const ButtonAdd = styled.button`
 	padding: 5px 30px;
 	cursor: pointer;
 	color: var(--bright-green);
+	&:hover {
+		color: var(--light-green);
+	}
 `;
 
 export default ButtonAdd;

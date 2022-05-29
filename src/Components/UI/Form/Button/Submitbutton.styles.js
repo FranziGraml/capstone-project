@@ -8,6 +8,9 @@ const ButtonSubmit = styled.button`
 	cursor: pointer;
 	justify-content: center;
 	color: var(--bright-green);
+	&:hover {
+		color: var(--light-green);
+	}
 `;
 
 export default ButtonSubmit;

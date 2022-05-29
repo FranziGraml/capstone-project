@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const Input = styled.input`
-	background-color: var(--bright-green);
+	background-color: var(--primary-cream);
 	border-radius: 7px;
 `;
 
