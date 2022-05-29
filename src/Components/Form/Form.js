@@ -6,6 +6,9 @@ import Input from '../UI/Form/Input.styles';
 import { nanoid } from 'nanoid';
 import { validatePostMail } from '../lib/validation';
 import { validatePostMobile } from '../lib/validation';
+import Icon from '../UI/Icons/icons';
+import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
+import ErrorBox from '../UI/Form/ErrorBox.styles';
 
 export default function Form({ posts, onSetPosts, onSetIsFormActive }) {
 	const [nameValue, setNameValue] = useState('');
@@ -41,7 +44,7 @@ export default function Form({ posts, onSetPosts, onSetIsFormActive }) {
 	return (
 		<section>
 			<FormStyled onSubmit={event => handleSubmit(event)}>
-				{isError && <p>You have an error in your form. </p>}
+				{isError && <ErrorBox>You have an error in your form. </ErrorBox>}
 				<Label htmlFor="Username">Username</Label>
 				<Input
 					required
@@ -92,7 +95,9 @@ export default function Form({ posts, onSetPosts, onSetIsFormActive }) {
 						setMobileValue(event.target.value);
 					}}
 				/>
-				<button type="submit">Save</button>
+				<ButtonSubmit type="submit">
+					<Icon variant="send" />
+				</ButtonSubmit>
 			</FormStyled>
 		</section>
 	);

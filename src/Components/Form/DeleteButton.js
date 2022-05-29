@@ -1,4 +1,5 @@
 import ButtonDelete from '../UI/Form/Button/DeleteButton.styles';
+import Icon from '../UI/Icons/icons';
 
 export default function DeleteButton({ id, onSetPosts, posts }) {
 	function deletePost() {
@@ -7,7 +8,7 @@ export default function DeleteButton({ id, onSetPosts, posts }) {
 
 	return (
 		<ButtonDelete type="button" onClick={() => deletePost()}>
-			Delete
+			<Icon variant="waste" />
 		</ButtonDelete>
 	);
 }

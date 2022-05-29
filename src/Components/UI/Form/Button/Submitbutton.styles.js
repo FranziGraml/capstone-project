@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
-const NavigationButton = styled.a`
-	padding: 0;
-	background: none;
+const ButtonSubmit = styled.button`
 	border: none;
-	list-style: none;
-	cursor: pointer;
 	background: none;
+	display: flex;
+	padding: 8px;
+	cursor: pointer;
+	justify-content: center;
 	color: var(--bright-green);
 	&:hover {
 		color: var(--light-green);
 	}
 `;
-export default NavigationButton;
+
+export default ButtonSubmit;

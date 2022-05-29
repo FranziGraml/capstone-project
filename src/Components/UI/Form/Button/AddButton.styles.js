@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 const ButtonAdd = styled.button`
-    text-transform: none;
-	border-radius: 50%;
+	border-radius: none;
 	border: none;
-	background-color: lavender;
+	background: none;
 	display: flex;
-	padding: 5px 5px;
-	cursor: pointer:
-	
+	padding: 5px 30px;
+	cursor: pointer;
+	color: var(--bright-green);
+	&:hover {
+		color: var(--light-green);
+	}
 `;
 
 export default ButtonAdd;

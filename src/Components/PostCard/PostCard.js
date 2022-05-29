@@ -3,13 +3,14 @@ import CardAddress from '../UI/PostCard/PostAddress.styles';
 import CardUserName from '../UI/PostCard/PostName.styles';
 import ContactCard from '../UI/PostCard/PostContact.styles';
 import DeleteButton from '../Form/DeleteButton';
+import CardContent from '../UI/PostCard/PostContent.styles';
 
 export default function PostCard({ name, content, mail, mobile, id, posts, onSetPosts }) {
 	return (
 		<CardArticle>
 			<CardUserName>{name}</CardUserName>
 
-			<p>{content}</p>
+			<CardContent>{content}</CardContent>
 
 			<ContactCard>Kontakt</ContactCard>
 
