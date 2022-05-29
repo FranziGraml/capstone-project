@@ -6,8 +6,8 @@ const ButtonDelete = styled.button`
 	display: flex;
 	padding: 5px 6px;
 	cursor: pointer;
-	position: absolute;
-	right: 60px;
+	position: fixed;
+	left: 15rem;
 	color: var(--bright-green);
 `;
 

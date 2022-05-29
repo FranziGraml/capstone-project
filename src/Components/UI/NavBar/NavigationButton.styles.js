@@ -7,7 +7,7 @@ const NavigationButton = styled.button`
 	background: none;
 	color: var(--bright-green);
 	&:hover {
-		background: blue;
+		color: var(--light-green);
 	}
 `;
 export default NavigationButton;
