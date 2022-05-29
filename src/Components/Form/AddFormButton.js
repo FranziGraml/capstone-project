@@ -1,4 +1,4 @@
-import ButtonAdd from '../UI/Form/Button/AddButton.styles';
+/* import ButtonAdd from '../UI/Form/Button/AddButton.styles';
 import Icon from '../UI/Icons/icons';
 
 export default function AddFormButton({ onSetIsFormActive }) {
@@ -8,3 +8,4 @@ export default function AddFormButton({ onSetIsFormActive }) {
 		</ButtonAdd>
 	);
 }
+ */

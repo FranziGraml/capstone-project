@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import FormWrapper from '../src/Components/UI/Form/FormWrapper.styles';
 import dynamic from 'next/dynamic';
 import ButtonAdd from '../src/Components/UI/Form/Button/AddButton.styles';
+import Icon from '../src/Components/UI/Icons/icons';
 
 export function getStaticProps() {
 	const data = getPosts();
@@ -30,7 +31,7 @@ export default function Posts({ data }) {
 	return (
 		<main>
 			<ButtonAdd type="button" onClick={() => setIsFormActive(prevCheck => !prevCheck)}>
-				Add new Post
+				<Icon variant="plus" />
 			</ButtonAdd>
 			<FormWrapper isFormActive={isFormActive}>
 				<Form posts={posts} onSetPosts={setPosts} onSetIsFormActive={setIsFormActive} />
