@@ -1,9 +1,9 @@
 import ButtonDelete from '../UI/Form/Button/DeleteButton.styles';
 import Icon from '../UI/Icons/icons';
 
-export default function DeleteButton({ id, onPosts, onSetPosts }) {
+export default function DeleteButton({ id, onSetPosts, posts }) {
 	function deletePost() {
-		onSetPosts(onPosts.filter(post => post.id !== id));
+		onSetPosts(posts.filter(post => post.id !== id));
 	}
 
 	return (

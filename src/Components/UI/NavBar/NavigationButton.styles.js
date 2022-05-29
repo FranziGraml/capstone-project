@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const NavigationButton = styled.button`
+const NavigationButton = styled.a`
+	padding: 0;
+	background: none;
 	border: none;
 	list-style: none;
 	cursor: pointer;

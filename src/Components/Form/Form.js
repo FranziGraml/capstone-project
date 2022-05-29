@@ -10,7 +10,7 @@ import Icon from '../UI/Icons/icons';
 import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 import ErrorBox from '../UI/Form/ErrorBox.styles';
 
-export default function Form({ onPosts, onSetPosts, onSetIsFormActive }) {
+export default function Form({ posts, onSetPosts, onSetIsFormActive }) {
 	const [nameValue, setNameValue] = useState('');
 	const [postValue, setPostValue] = useState('');
 	const [mailValue, setMailValue] = useState('');
@@ -28,7 +28,7 @@ export default function Form({ onPosts, onSetPosts, onSetIsFormActive }) {
 					mobile: mobileValue,
 					id: nanoid(),
 				},
-				...onPosts,
+				...posts,
 			]);
 			setNameValue('');
 			setPostValue('');

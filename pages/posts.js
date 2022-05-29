@@ -1,10 +1,10 @@
 import getPosts from '../src/Services/get-posts';
 import Form from '../src/Components/Form/Form';
-import AddFormButton from '../src/Components/Form/AddFormButton';
 import { saveToLocal, loadFromLocal } from '../src/Components/lib/localStorage';
 import { useState, useEffect } from 'react';
 import FormWrapper from '../src/Components/UI/Form/FormWrapper.styles';
 import dynamic from 'next/dynamic';
+import ButtonAdd from '../src/Components/UI/Form/Button/AddButton.styles';
 
 export function getStaticProps() {
 	const data = getPosts();
@@ -29,11 +29,13 @@ export default function Posts({ data }) {
 
 	return (
 		<main>
-			<AddFormButton onSetIsFormActive={setIsFormActive} />
+			<ButtonAdd type="button" onClick={() => setIsFormActive(prevCheck => !prevCheck)}>
+				Add new Post
+			</ButtonAdd>
 			<FormWrapper isFormActive={isFormActive}>
-				<Form onPosts={posts} onSetPosts={setPosts} onSetIsFormActive={setIsFormActive} />
+				<Form posts={posts} onSetPosts={setPosts} onSetIsFormActive={setIsFormActive} />
 			</FormWrapper>
-			<RenderPosts onPosts={posts} onSetPosts={setPosts} />
+			<RenderPosts posts={posts} onSetPosts={setPosts} />
 		</main>
 	);
 }
