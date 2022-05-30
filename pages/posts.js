@@ -23,10 +23,9 @@ export async function getStaticProps() {
 }
 
 export default function Posts({ fallback }) {
-	const [posts, setPosts] = useState([]);
 	const [isFormActive, setIsFormActive] = useState(false);
 
-	/* 	const RenderPosts = dynamic(() => import('../src/Components/Form/RenderPosts'), {
+	/* const RenderPosts = dynamic(() => import('../src/Components/Form/RenderPosts'), {
 		ssr: false,
 	}); */
 
@@ -37,7 +36,7 @@ export default function Posts({ fallback }) {
 					<Icon variant="plus" />
 				</ButtonAdd>
 				<FormWrapper isFormActive={isFormActive}>
-					<Form posts={posts} onSetPosts={setPosts} onSetIsFormActive={setIsFormActive} />
+					<Form onSetIsFormActive={setIsFormActive} />
 				</FormWrapper>
 				<RenderPosts />
 			</SWRConfig>

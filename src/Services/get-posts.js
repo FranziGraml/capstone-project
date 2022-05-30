@@ -4,24 +4,13 @@ import Post from '../models/Post';
 export const getPosts = async () => {
 	await dbConnect();
 	const data = await Post.find();
-	//console.log('Data: ' + data);
-	return data.map(({ name, content, mail, mobile }) => ({
-		name,
-		content,
-		mail,
-		mobile,
-	}));
-};
 
-/* 
-export const getPosts = async () => {
-	await dbConnect();
-	const data = await Post.find().populate('user');
-	return data.map(({ id, name, content, mail, mobile }) => ({
+	return data.map(({ id, name, content, mail, mobile, postDate }) => ({
 		id,
 		name,
 		content,
 		mail,
 		mobile,
+		postDate,
 	}));
-}; */
+};
