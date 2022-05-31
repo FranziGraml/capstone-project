@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const url = 'mongodb://localhost:27017/digi-nomads';
+const url = process.env.DB_CONNECTION; /* 'mongodb://localhost:27017/digi-nomads'; */
 console.log(url);
 export async function dbConnect() {
 	try {

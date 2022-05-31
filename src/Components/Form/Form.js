@@ -45,30 +45,6 @@ export default function Form({ onSetIsFormActive }) {
 		}
 	}
 
-	/* function handleSubmit(event) {
-		event.preventDefault();
-		if (validatePostMobile(mobileValue) && validatePostMail(mailValue)) {
-			onSetPosts([
-				{
-					name: nameValue,
-					post: postValue,
-					mail: mailValue,
-					mobile: mobileValue,
-					id: nanoid(),
-				},
-				...posts,
-			]);
-			setNameValue('');
-			setPostValue('');
-			setMailValue('');
-			setMobileValue('');
-			onSetIsFormActive(false);
-			setIsError(false);
-		} else {
-			setIsError(true);
-		}
-	} */
-
 	return (
 		<section>
 			<FormStyled onSubmit={event => handleSubmit(event)}>
