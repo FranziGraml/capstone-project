@@ -2,7 +2,7 @@ import { getPosts } from '../src/Services/get-posts';
 import Form from '../src/Components/Form/Form';
 import { useState } from 'react';
 import FormWrapper from '../src/Components/UI/Form/FormWrapper.styles';
-//import dynamic from 'next/dynamic';
+
 import ButtonAdd from '../src/Components/UI/Form/Button/AddButton.styles';
 import Icon from '../src/Components/UI/Icons/icons';
 import { SWRConfig } from 'swr';
@@ -24,10 +24,6 @@ export async function getStaticProps() {
 
 export default function Posts({ fallback }) {
 	const [isFormActive, setIsFormActive] = useState(false);
-
-	/* const RenderPosts = dynamic(() => import('../src/Components/Form/RenderPosts'), {
-		ssr: false,
-	}); */
 
 	return (
 		<main>
