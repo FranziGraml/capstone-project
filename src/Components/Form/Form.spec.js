@@ -9,7 +9,7 @@ describe('Form', () => {
 		const posts = screen.getByLabelText(/post/i);
 		const mail = screen.getByLabelText(/Mail/i);
 		const mobile = screen.getByLabelText(/Mobile/i);
-		const submitButton = screen.getByRole('button', { name: /Save/i });
+		const submitButton = screen.getByRole('button');
 
 		expect(Username).toBeInTheDocument();
 		expect(posts).toBeInTheDocument();
