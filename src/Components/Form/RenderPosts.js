@@ -12,20 +12,18 @@ export default function RenderPosts() {
 		<>
 			{posts
 				.sort((a, b) => b.postDate - a.postDate)
-				.map(post => {
-					return (
-						<ul key={nanoid()}>
-							<PostCard
-								name={post.name}
-								content={post.content}
-								mail={post.mail}
-								mobile={post.mobile}
-								postDate={post.postDate}
-								id={post.id}
-							/>
-						</ul>
-					);
-				})}
+				.map(post => (
+					<ul key={nanoid()}>
+						<PostCard
+							name={post.name}
+							content={post.content}
+							mail={post.mail}
+							mobile={post.mobile}
+							postDate={post.postDate}
+							id={post.id}
+						/>
+					</ul>
+				))}
 		</>
 	);
 }

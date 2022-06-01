@@ -3,14 +3,13 @@ import FormStyled from '../UI/Form/Form.styles';
 import TextField from '../UI/Form/TextField.styles';
 import Label from '../UI/Form/Label.styles';
 import Input from '../UI/Form/Input.styles';
-import { validatePostMail } from '../lib/validation';
-import { validatePostMobile } from '../lib/validation';
+import { validatePostName, validatePostMail, validatePostMobile } from '../lib/validation';
 import Icon from '../UI/Icons/icons';
 import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 import ErrorBox from '../UI/Form/ErrorBox.styles';
 import { useRouter } from 'next/router';
 
-export default function Form({ onSetIsFormActive }) {
+export default function Form({ onSetFormActiveFalse }) {
 	const [nameValue, setNameValue] = useState('');
 	const [postValue, setPostValue] = useState('');
 	const [mailValue, setMailValue] = useState('');
@@ -20,9 +19,13 @@ export default function Form({ onSetIsFormActive }) {
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-		if (validatePostMobile(mobileValue) && validatePostMail(mailValue)) {
-			let post_date = new Date().getTime();
-			const response = await fetch('api/post/create', {
+		let post_date = new Date().getTime();
+		if (
+			validatePostMobile(mobileValue) &&
+			validatePostMail(mailValue) &&
+			validatePostName(nameValue)
+		) {
+			const _response = await fetch('api/post/create', {
 				method: 'POST',
 				body: JSON.stringify({
 					name: nameValue,
@@ -36,9 +39,8 @@ export default function Form({ onSetIsFormActive }) {
 			setPostValue('');
 			setMailValue('');
 			setMobileValue('');
-			onSetIsFormActive(false);
+			onSetFormActiveFalse();
 			setIsError(false);
-			console.log(await response.json);
 			router.push('/posts');
 		} else {
 			setIsError(true);

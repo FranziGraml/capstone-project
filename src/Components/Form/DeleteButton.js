@@ -11,10 +11,9 @@ export default function DeleteButton({ id }) {
 		<ButtonDelete
 			type="button"
 			onClick={async () => {
-				const response = await fetch('/api/post/' + id, {
+				const _response = await fetch('/api/post/' + id, {
 					method: 'DELETE',
 				});
-				console.log(await response.json());
 				mutate('/api/posts');
 				router.push('/posts');
 			}}
