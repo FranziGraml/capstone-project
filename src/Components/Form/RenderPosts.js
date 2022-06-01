@@ -1,6 +1,5 @@
 import PostCard from '../PostCard/PostCard';
 import useSWR from 'swr';
-//import { nanoid } from 'nanoid';
 
 export default function RenderPosts() {
 	const { data: posts, error } = useSWR('/api/posts');

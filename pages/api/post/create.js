@@ -23,7 +23,7 @@ export default async function handler(request, response) {
 
 			response.status(200).json({ message: 'post created', post: newPost });
 		} catch (error) {
-			console.log('Error could not POST', error.message);
+			response.status(500).json({ error: 'Error could not POST' });
 		}
 	} else {
 		response.status(405).json({ error: 'wrong method' });

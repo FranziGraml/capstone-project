@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 			const deletedPost = await Post.findByIdAndDelete(id);
 			res.status(200).json({ message: 'post deleted', post: deletedPost });
 		} catch (error) {
-			console.log('Error could not delete', error.message);
+			res.status(500).json({ error: 'Error could not delete' });
 		}
 	} else {
 		const singleCard = await Post.findById(id);
