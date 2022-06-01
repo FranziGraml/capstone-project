@@ -3,39 +3,51 @@ import FormStyled from '../UI/Form/Form.styles';
 import TextField from '../UI/Form/TextField.styles';
 import Label from '../UI/Form/Label.styles';
 import Input from '../UI/Form/Input.styles';
-import { nanoid } from 'nanoid';
-import { validatePostMail } from '../lib/validation';
-import { validatePostMobile } from '../lib/validation';
+import {
+	validatePostName,
+	validatePostMail,
+	validatePostMobile,
+	validatePostPost,
+} from '../lib/validation';
 import Icon from '../UI/Icons/icons';
 import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 import ErrorBox from '../UI/Form/ErrorBox.styles';
+import { useRouter } from 'next/router';
 
-export default function Form({ posts, onSetPosts, onSetIsFormActive }) {
+export default function Form({ onSetFormActiveFalse }) {
 	const [nameValue, setNameValue] = useState('');
 	const [postValue, setPostValue] = useState('');
 	const [mailValue, setMailValue] = useState('');
 	const [mobileValue, setMobileValue] = useState('');
 	const [isError, setIsError] = useState(false);
+	const router = useRouter();
 
-	function handleSubmit(event) {
+	async function handleSubmit(event) {
 		event.preventDefault();
-		if (validatePostMobile(mobileValue) && validatePostMail(mailValue)) {
-			onSetPosts([
-				{
+		let post_date = new Date().getTime();
+		if (
+			validatePostMobile(mobileValue) &&
+			validatePostMail(mailValue) &&
+			validatePostName(nameValue) &&
+			validatePostPost(postValue)
+		) {
+			const _response = await fetch('api/post/create', {
+				method: 'POST',
+				body: JSON.stringify({
 					name: nameValue,
 					post: postValue,
 					mail: mailValue,
 					mobile: mobileValue,
-					id: nanoid(),
-				},
-				...posts,
-			]);
+					postDate: post_date,
+				}),
+			});
 			setNameValue('');
 			setPostValue('');
 			setMailValue('');
 			setMobileValue('');
-			onSetIsFormActive(false);
+			onSetFormActiveFalse();
 			setIsError(false);
+			router.push('/posts');
 		} else {
 			setIsError(true);
 		}

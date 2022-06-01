@@ -1,23 +1,28 @@
 import PostCard from '../PostCard/PostCard';
+import useSWR from 'swr';
 
-export default function RenderPosts({ posts, onSetPosts }) {
+export default function RenderPosts() {
+	const { data: posts, error } = useSWR('/api/posts');
+
+	if (error) {
+		return <p>Error: {error.message}</p>;
+	}
 	return (
 		<>
-			{posts.map(post => {
-				return (
+			{posts
+				.sort((a, b) => b.postDate - a.postDate)
+				.map(post => (
 					<ul key={post.id}>
 						<PostCard
 							name={post.name}
-							content={post.post}
+							content={post.content}
 							mail={post.mail}
 							mobile={post.mobile}
+							postDate={post.postDate}
 							id={post.id}
-							posts={posts}
-							onSetPosts={onSetPosts}
 						/>
 					</ul>
-				);
-			})}
+				))}
 		</>
 	);
 }

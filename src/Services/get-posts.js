@@ -1,5 +1,16 @@
-import data from './static-posts.json';
+import { dbConnect } from '../Components/lib/database';
+import Post from '../models/Post';
 
-export default function getPosts() {
-	return data;
-}
+export const getPosts = async () => {
+	await dbConnect();
+	const data = await Post.find();
+
+	return data.map(({ id, name, content, mail, mobile, postDate }) => ({
+		id,
+		name,
+		content,
+		mail,
+		mobile,
+		postDate,
+	}));
+};

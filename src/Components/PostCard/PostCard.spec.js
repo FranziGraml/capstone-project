@@ -22,7 +22,7 @@ describe('Posts', () => {
 		const contact = screen.getByText(/Kontakt/i);
 		const mail = screen.getByText(/hallo.welt.com/i);
 		const mobile = screen.getByText(/23678/i);
-		const button = screen.getByRole('button', { name: /Delete/i });
+		const button = screen.getByRole('button');
 
 		expect(name).toBeInTheDocument();
 		expect(content).toBeInTheDocument();
