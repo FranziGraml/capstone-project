@@ -1,6 +1,6 @@
 import PostCard from '../PostCard/PostCard';
 import useSWR from 'swr';
-import { nanoid } from 'nanoid';
+//import { nanoid } from 'nanoid';
 
 export default function RenderPosts() {
 	const { data: posts, error } = useSWR('/api/posts');
@@ -13,7 +13,7 @@ export default function RenderPosts() {
 			{posts
 				.sort((a, b) => b.postDate - a.postDate)
 				.map(post => (
-					<ul key={nanoid()}>
+					<ul key={post.id}>
 						<PostCard
 							name={post.name}
 							content={post.content}
