@@ -3,7 +3,12 @@ import FormStyled from '../UI/Form/Form.styles';
 import TextField from '../UI/Form/TextField.styles';
 import Label from '../UI/Form/Label.styles';
 import Input from '../UI/Form/Input.styles';
-import { validatePostName, validatePostMail, validatePostMobile } from '../lib/validation';
+import {
+	validatePostName,
+	validatePostMail,
+	validatePostMobile,
+	validatePostPost,
+} from '../lib/validation';
 import Icon from '../UI/Icons/icons';
 import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 import ErrorBox from '../UI/Form/ErrorBox.styles';
@@ -23,7 +28,8 @@ export default function Form({ onSetFormActiveFalse }) {
 		if (
 			validatePostMobile(mobileValue) &&
 			validatePostMail(mailValue) &&
-			validatePostName(nameValue)
+			validatePostName(nameValue) &&
+			validatePostPost(postValue)
 		) {
 			const _response = await fetch('api/post/create', {
 				method: 'POST',
