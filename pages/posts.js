@@ -5,7 +5,7 @@ import FormWrapper from '../src/Components/UI/Form/FormWrapper.styles';
 import ButtonAdd from '../src/Components/UI/Form/Button/AddButton.styles';
 import Icon from '../src/Components/UI/Icons/icons';
 import { SWRConfig } from 'swr';
-import swrFetcher from '../src/Components/lib/swr-Fetcher';
+import { swrFetcher } from '../src/Components/lib/swr-Fetcher';
 import RenderPosts from '../src/Components/Form/RenderPosts';
 
 export async function getStaticProps() {
