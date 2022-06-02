@@ -13,6 +13,7 @@ import Icon from '../UI/Icons/icons';
 import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 import ErrorBox from '../UI/Form/ErrorBox.styles';
 import { useRouter } from 'next/router';
+import { useSWRConfig } from 'swr';
 
 export default function Form({ onSetFormActiveFalse }) {
 	const [nameValue, setNameValue] = useState('');
@@ -21,6 +22,7 @@ export default function Form({ onSetFormActiveFalse }) {
 	const [mobileValue, setMobileValue] = useState('');
 	const [isError, setIsError] = useState(false);
 	const router = useRouter();
+	const { mutate } = useSWRConfig();
 
 	async function handleSubmit(event) {
 		event.preventDefault();
@@ -41,6 +43,7 @@ export default function Form({ onSetFormActiveFalse }) {
 					postDate: post_date,
 				}),
 			});
+			mutate('/api/posts');
 			setNameValue('');
 			setPostValue('');
 			setMailValue('');
