@@ -22,6 +22,7 @@ export default function Form({ onSetFormActiveFalse }) {
 	const [mailValue, setMailValue] = useState('');
 	const [mobileValue, setMobileValue] = useState('');
 	const [isError, setIsError] = useState(false);
+	const [isTagError, setIsTagError] = useState(false);
 	const [tag, setTag] = useState([]);
 	const router = useRouter();
 	const { mutate } = useSWRConfig();
@@ -33,7 +34,8 @@ export default function Form({ onSetFormActiveFalse }) {
 			validatePostMobile(mobileValue) &&
 			validatePostMail(mailValue) &&
 			validatePostName(nameValue) &&
-			validatePostPost(postValue)
+			validatePostPost(postValue) &&
+			tag.length > 0
 		) {
 			const _response = await fetch('api/post/create', {
 				method: 'POST',
@@ -53,8 +55,11 @@ export default function Form({ onSetFormActiveFalse }) {
 			setMobileValue('');
 			onSetFormActiveFalse();
 			setIsError(false);
+			setIsTagError(false);
 			setTag([]);
 			router.push('/posts');
+		} else if (!tag.length > 0) {
+			setIsTagError(true);
 		} else {
 			setIsError(true);
 		}
@@ -63,11 +68,20 @@ export default function Form({ onSetFormActiveFalse }) {
 		setTag([...tag, item]);
 	}
 
+	function deleteTag(item) {
+		setTag(tag.filter(tag => tag !== item));
+	}
+
 	return (
 		<section>
 			<FormStyled onSubmit={event => handleSubmit(event)}>
 				{isError && <ErrorBox>You have an error in your form. </ErrorBox>}
-				<Tags tag={tag} onSetTagState={item => setTagState(item)} />
+				{isTagError && <ErrorBox>You must choose at least one tag. </ErrorBox>}
+				<Tags
+					tag={tag}
+					onSetTagState={item => setTagState(item)}
+					onDeleteTag={item => deleteTag(item)}
+				/>
 				<Label htmlFor="Username">Username</Label>
 				<Input
 					required

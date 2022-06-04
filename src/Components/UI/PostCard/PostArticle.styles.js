@@ -5,9 +5,11 @@ const CardArticle = styled.article`
 	flex-direction: column;
 	gap: 15px;
 	padding: 0.8rem;
+	margin: 10px;
 	border-radius: 25px;
-	width: 300px;
+	position: relative;
 	background: black rgb();
 	border: 1px solid var(--dark-green);
+	width: 360px;
 `;
 export default CardArticle;

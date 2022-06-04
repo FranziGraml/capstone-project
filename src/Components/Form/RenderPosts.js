@@ -1,6 +1,12 @@
 import PostCard from '../PostCard/PostCard';
 import useSWR from 'swr';
 import { useState } from 'react';
+import RenderButtonWrapper from '../UI/RenderPosts/Tags/Button/RenderButtonsWrapper.style';
+import RenderPostCardList from '../UI/RenderPosts/RenderCard/RenderPostCardList.style';
+import RenderButtonCoWorking from '../UI/RenderPosts/Tags/Button/RenderButtonCoWorking.styles';
+import RenderButtonCoLiving from '../UI/RenderPosts/Tags/Button/RenderButtonCoLiving.styles';
+import RenderButtonAccomodations from '../UI/RenderPosts/Tags/Button/RenderButtonAccomodations.styles';
+import RenderButtonGeneral from '../UI/RenderPosts/Tags/Button/RenderButtonGeneral.styles';
 
 export default function RenderPosts() {
 	const { data: posts, error } = useSWR('/api/posts');
@@ -40,42 +46,47 @@ export default function RenderPosts() {
 
 	return (
 		<>
-			<button
-				type="button"
-				onClick={() => {
-					setFilterCoWorking(!filterCoWorking);
-				}}
-			>
-				Co-Working
-			</button>
-			<button
-				type="button"
-				onClick={() => {
-					setFilterCoLiving(!filterCoLiving);
-				}}
-			>
-				Co-Living
-			</button>
-			<button
-				type="button"
-				onClick={() => {
-					setFilterAccomodations(!filterAccomodations);
-					!filterAccomodations;
-				}}
-			>
-				Accomodation
-			</button>
-			<button
-				type="button"
-				onClick={() => {
-					setFilterGeneral(!filterGeneral);
-				}}
-			>
-				General
-			</button>
+			<RenderButtonWrapper>
+				<RenderButtonCoWorking
+					filterCoWorking={filterCoWorking}
+					type="button"
+					onClick={() => {
+						setFilterCoWorking(!filterCoWorking);
+					}}
+				>
+					Co-Working
+				</RenderButtonCoWorking>
+				<RenderButtonCoLiving
+					filterCoLiving={filterCoLiving}
+					type="button"
+					onClick={() => {
+						setFilterCoLiving(!filterCoLiving);
+					}}
+				>
+					Co-Living
+				</RenderButtonCoLiving>
+				<RenderButtonAccomodations
+					filterAccomodations={filterAccomodations}
+					type="button"
+					onClick={() => {
+						setFilterAccomodations(!filterAccomodations);
+					}}
+				>
+					Accomodation
+				</RenderButtonAccomodations>
+				<RenderButtonGeneral
+					filterGeneral={filterGeneral}
+					type="button"
+					onClick={() => {
+						setFilterGeneral(!filterGeneral);
+					}}
+				>
+					General
+				</RenderButtonGeneral>
+			</RenderButtonWrapper>
 
 			{showFilteredOrAll().map(post => (
-				<ul key={post.id}>
+				<RenderPostCardList key={post.id}>
 					<PostCard
 						name={post.name}
 						content={post.content}
@@ -85,7 +96,7 @@ export default function RenderPosts() {
 						id={post.id}
 						tags={post.tags}
 					/>
-				</ul>
+				</RenderPostCardList>
 			))}
 		</>
 	);
