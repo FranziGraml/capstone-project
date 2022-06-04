@@ -5,7 +5,7 @@ import ContactCard from '../UI/PostCard/PostContact.styles';
 import DeleteButton from '../Form/DeleteButton';
 import CardContent from '../UI/PostCard/PostContent.styles';
 
-export default function PostCard({ name, content, mail, mobile, id }) {
+export default function PostCard({ name, content, mail, mobile, id, tags }) {
 	return (
 		<CardArticle>
 			<CardUserName>{name}</CardUserName>
@@ -17,6 +17,10 @@ export default function PostCard({ name, content, mail, mobile, id }) {
 			<CardAddress>{mail}</CardAddress>
 
 			<CardAddress>{mobile}</CardAddress>
+
+			<p>
+				{tags[0]} {tags[1]} {tags[2]} {tags[3]}
+			</p>
 
 			<DeleteButton id={id} />
 		</CardArticle>

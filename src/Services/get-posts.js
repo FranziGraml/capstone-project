@@ -5,12 +5,14 @@ export const getPosts = async () => {
 	await dbConnect();
 	const data = await Post.find();
 
-	return data.map(({ id, name, content, mail, mobile, postDate }) => ({
+	console.log(data);
+	return data.map(({ id, name, content, mail, mobile, postDate, tags }) => ({
 		id,
 		name,
 		content,
 		mail,
 		mobile,
 		postDate,
+		tags,
 	}));
 };

@@ -6,6 +6,7 @@ const postSchema = new mongoose.Schema({
 	mail: String,
 	mobile: String,
 	postDate: Number,
+	tags: Array,
 	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 

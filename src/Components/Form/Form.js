@@ -14,6 +14,7 @@ import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 import ErrorBox from '../UI/Form/ErrorBox.styles';
 import { useRouter } from 'next/router';
 import { useSWRConfig } from 'swr';
+import Tags from './Tags';
 
 export default function Form({ onSetFormActiveFalse }) {
 	const [nameValue, setNameValue] = useState('');
@@ -21,6 +22,7 @@ export default function Form({ onSetFormActiveFalse }) {
 	const [mailValue, setMailValue] = useState('');
 	const [mobileValue, setMobileValue] = useState('');
 	const [isError, setIsError] = useState(false);
+	const [tag, setTag] = useState([]);
 	const router = useRouter();
 	const { mutate } = useSWRConfig();
 
@@ -41,6 +43,7 @@ export default function Form({ onSetFormActiveFalse }) {
 					mail: mailValue,
 					mobile: mobileValue,
 					postDate: post_date,
+					tags: tag,
 				}),
 			});
 			mutate('/api/posts');
@@ -50,16 +53,21 @@ export default function Form({ onSetFormActiveFalse }) {
 			setMobileValue('');
 			onSetFormActiveFalse();
 			setIsError(false);
+			setTag([]);
 			router.push('/posts');
 		} else {
 			setIsError(true);
 		}
+	}
+	function setTagState(item) {
+		setTag([...tag, item]);
 	}
 
 	return (
 		<section>
 			<FormStyled onSubmit={event => handleSubmit(event)}>
 				{isError && <ErrorBox>You have an error in your form. </ErrorBox>}
+				<Tags tag={tag} onSetTagState={item => setTagState(item)} />
 				<Label htmlFor="Username">Username</Label>
 				<Input
 					required
