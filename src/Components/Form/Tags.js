@@ -3,9 +3,9 @@ import TagButtonCoWorking from '../UI/RenderPosts/Tags/Button/TagButtonCoWorking
 import TagButtonCoLiving from '../UI/RenderPosts/Tags/Button/TagButtonCoLiving.styles';
 import TagButtonAccomodations from '../UI/RenderPosts/Tags/Button/TagButtonAccomodations.styles';
 import TagButtonGeneral from '../UI/RenderPosts/Tags/Button/TagButtonGeneral.styles';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function Tags({ tag, onSetTagState, onDeleteTag }) {
+export default function Tags({ tag, resetTags, onSetTagState, onDeleteTag }) {
 	const [tagButtonCoWorking, setTagButtonCoWorking] = useState(false);
 	const [tagButtonCoLiving, setTagButtonCoLiving] = useState(false);
 	const [tagButtonAccomodations, setTagButtonAccomodations] = useState(false);
@@ -32,6 +32,17 @@ export default function Tags({ tag, onSetTagState, onDeleteTag }) {
 		} else if (tags === 'General' && tag.includes('General')) {
 			onDeleteTag(tags);
 		}
+	}
+
+	useEffect(() => {
+		resetTagStates();
+	}, [resetTags]);
+
+	function resetTagStates() {
+		setTagButtonCoWorking(false);
+		setTagButtonCoLiving(false);
+		setTagButtonAccomodations(false);
+		setTagButtonGeneral(false);
 	}
 
 	return (

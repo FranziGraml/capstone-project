@@ -22,11 +22,14 @@ export async function getStaticProps() {
 }
 
 export default function Posts({ fallback }) {
-	const [isFormActive, setIsFormActive] = useState(false);
+	/* const [isFormActive, setIsFormActive] = useState(false); */
 	const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
 
-	function setFormActiveFalse() {
+	/* 	function setFormActiveFalse() {
 		setIsFormActive(false);
+	} */
+	function toggleAddButton() {
+		setIsAddButtonClicked(!isAddButtonClicked);
 	}
 
 	return (
@@ -36,14 +39,16 @@ export default function Posts({ fallback }) {
 					<ButtonAdd
 						type="button"
 						onClick={() => {
-							setIsFormActive(prevCheck => !prevCheck);
-							setIsAddButtonClicked(!isAddButtonClicked);
+							toggleAddButton();
 						}}
 					>
 						<Icon variant={!isAddButtonClicked ? 'plus' : 'minus'} />
 					</ButtonAdd>
-					<FormWrapper isFormActive={isFormActive}>
-						<Form onSetFormActiveFalse={() => setFormActiveFalse()} />
+					<FormWrapper isAddButtonClicked={isAddButtonClicked}>
+						<Form
+							isAddButtonClicked={isAddButtonClicked}
+							onToggleAddButton={() => toggleAddButton()}
+						/>
 					</FormWrapper>
 					<RenderPosts />
 				</MainContainer>

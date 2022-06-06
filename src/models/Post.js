@@ -1,14 +1,20 @@
 import mongoose from 'mongoose';
+const { Schema } = mongoose;
 
-const postSchema = new mongoose.Schema({
-	name: String,
-	content: String,
-	mail: String,
-	mobile: String,
-	postDate: Number,
-	tags: Array,
-	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-});
+const postSchema = new Schema(
+	{
+		name: String,
+		content: { type: String, required: true },
+		mail: String,
+		mobile: String,
+		postDate: Number,
+		tags: Array,
+		user: { type: Schema.Types.ObjectId, ref: 'User' },
+	},
+	{
+		timesstamps: true,
+	}
+);
 
 const Post = mongoose.models.Post ?? mongoose.model('Post', postSchema);
 
