@@ -7,6 +7,8 @@ import RenderButtonCoWorking from '../UI/RenderPosts/Tags/Button/RenderButtonCoW
 import RenderButtonCoLiving from '../UI/RenderPosts/Tags/Button/RenderButtonCoLiving.styles';
 import RenderButtonAccomodations from '../UI/RenderPosts/Tags/Button/RenderButtonAccomodations.styles';
 import RenderButtonGeneral from '../UI/RenderPosts/Tags/Button/RenderButtonGeneral.styles';
+import CardTag from '../UI/PostCard/PostTags.styles';
+import { nanoid } from 'nanoid';
 
 export default function RenderPosts() {
 	const { data: posts, error } = useSWR('/api/posts');
@@ -88,14 +90,16 @@ export default function RenderPosts() {
 			{showFilteredOrAll().map(post => (
 				<RenderPostCardList key={post.id}>
 					<PostCard
-						user={post.user}
+						/* user={post.user} */
 						name={post.name}
 						content={post.content}
 						mail={post.mail}
 						mobile={post.mobile}
 						postDate={post.postDate}
 						id={post.id}
-						tags={post.tags}
+						tags={post.tags.map(tag => (
+							<CardTag key={nanoid()}>{tag}</CardTag>
+						))}
 					/>
 				</RenderPostCardList>
 			))}

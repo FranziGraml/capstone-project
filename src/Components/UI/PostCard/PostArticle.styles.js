@@ -8,8 +8,8 @@ const CardArticle = styled.article`
 	margin: 10px;
 	border-radius: 25px;
 	position: relative;
-	background: black rgb();
-	border: 1px solid var(--dark-green);
+	border: 2px solid var(--primary-cream);
+	background: var(--light-orange);
 	width: 360px;
 `;
 export default CardArticle;

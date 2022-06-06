@@ -8,16 +8,16 @@ export default async function handler(request, response) {
 			const data = JSON.parse(request.body);
 			await dbConnect();
 
-			let user = await User.findOne({ email: data.user.email });
+			/* let user = await User.findOne({ email: data.user.email });
 			if (!user) {
 				user = await User.create({ ...data.user });
-			}
+			} */
 
-			/* let user = await User.findOne({ name: data.name });
+			let user = await User.findOne({ name: data.name });
 			if (!user) {
 				user = await User.create({ name: data.name });
 			}
- */
+
 			const newPost = await Post.create({
 				name: data.name,
 				content: data.post,
@@ -26,8 +26,7 @@ export default async function handler(request, response) {
 				postDate: data.postDate,
 				tags: data.tags,
 			});
-			console.log('data.tag: ' + data.tags);
-			console.log('data.post: ' + data.post);
+
 			response.status(200).json({ message: 'post created', post: newPost });
 		} catch (error) {
 			response.status(500).json({ error: 'Error could not POST' });

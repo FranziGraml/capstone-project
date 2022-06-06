@@ -9,7 +9,7 @@ import Icon from '../UI/Icons/icons';
 import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
 import ErrorBox from '../UI/Form/ErrorBox.styles';
 import Tags from './Tags';
-import { useSession } from 'next-auth/react';
+
 import {
 	validatePostName,
 	validatePostMail,
@@ -32,7 +32,6 @@ export default function Form({ isAddButtonClicked, onToggleAddButton }) {
 	const [tag, setTag] = useState([]);
 	const router = useRouter();
 	const { mutate } = useSWRConfig();
-	const { data: session } = useSession();
 
 	async function handleSubmit(event) {
 		event.preventDefault();
@@ -53,7 +52,6 @@ export default function Form({ isAddButtonClicked, onToggleAddButton }) {
 					mobile: values.mobileValue,
 					postDate: post_date,
 					tags: tag,
-					user: session.user,
 				}),
 			});
 			mutate('/api/posts');

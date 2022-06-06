@@ -2,6 +2,6 @@ import styled from 'styled-components';
 import RenderButton from './RenderButton.styles';
 
 const TagButtonGeneral = styled(RenderButton)`
-	background: ${props => (props.tagButtonGeneral ? 'var(--middle-green)' : 'var(--dark-green)')};
+	background: ${props => (props.tagButtonGeneral ? 'var(--light-orange)' : '#99B9E6')};
 `;
 export default TagButtonGeneral;
