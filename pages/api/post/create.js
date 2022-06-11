@@ -8,6 +8,11 @@ export default async function handler(request, response) {
 			const data = JSON.parse(request.body);
 			await dbConnect();
 
+			/* let user = await User.findOne({ email: data.user.email });
+			if (!user) {
+				user = await User.create({ ...data.user });
+			} */
+
 			let user = await User.findOne({ name: data.name });
 			if (!user) {
 				user = await User.create({ name: data.name });
@@ -19,6 +24,7 @@ export default async function handler(request, response) {
 				mail: data.mail,
 				mobile: data.mobile,
 				postDate: data.postDate,
+				tags: data.tags,
 			});
 
 			response.status(200).json({ message: 'post created', post: newPost });

@@ -7,6 +7,7 @@ import Icon from '../src/Components/UI/Icons/icons';
 import { SWRConfig } from 'swr';
 import { swrFetcher } from '../src/Components/lib/swr-Fetcher';
 import RenderPosts from '../src/Components/Form/RenderPosts';
+import MainContainer from '../src/Components/UI/Posts/MainContainer.styles';
 
 export async function getStaticProps() {
 	const posts = await getPosts();
@@ -21,22 +22,36 @@ export async function getStaticProps() {
 }
 
 export default function Posts({ fallback }) {
-	const [isFormActive, setIsFormActive] = useState(false);
+	/* const [isFormActive, setIsFormActive] = useState(false); */
+	const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
 
-	function setFormActiveFalse() {
+	/* 	function setFormActiveFalse() {
 		setIsFormActive(false);
+	} */
+	function toggleAddButton() {
+		setIsAddButtonClicked(!isAddButtonClicked);
 	}
 
 	return (
 		<main>
 			<SWRConfig value={{ fetcher: swrFetcher, fallback }}>
-				<ButtonAdd type="button" onClick={() => setIsFormActive(prevCheck => !prevCheck)}>
-					<Icon variant="plus" />
-				</ButtonAdd>
-				<FormWrapper isFormActive={isFormActive}>
-					<Form onSetFormActiveFalse={() => setFormActiveFalse()} />
-				</FormWrapper>
-				<RenderPosts />
+				<MainContainer>
+					<ButtonAdd
+						type="button"
+						onClick={() => {
+							toggleAddButton();
+						}}
+					>
+						<Icon variant={!isAddButtonClicked ? 'plus' : 'minus'} />
+					</ButtonAdd>
+					<FormWrapper isAddButtonClicked={isAddButtonClicked}>
+						<Form
+							isAddButtonClicked={isAddButtonClicked}
+							onToggleAddButton={() => toggleAddButton()}
+						/>
+					</FormWrapper>
+					<RenderPosts />
+				</MainContainer>
 			</SWRConfig>
 		</main>
 	);

@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
 const ButtonAdd = styled.button`
-	border-radius: none;
+	display: flex;
+	//justify-content: center;
+	//align-items: center;
+	//border-radius: none;
+	position: relative;
+	left: -10rem;
+	top: 0.1rem;
 	border: none;
 	background: none;
-	display: flex;
-	padding: 5px 30px;
+	//padding: 5px auto;
+	margin: 0.5rem;
 	cursor: pointer;
 	color: var(--bright-green);
 	&:hover {

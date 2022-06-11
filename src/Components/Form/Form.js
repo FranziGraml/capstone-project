@@ -1,26 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSWRConfig } from 'swr';
 import FormStyled from '../UI/Form/Form.styles';
 import TextField from '../UI/Form/TextField.styles';
 import Label from '../UI/Form/Label.styles';
 import Input from '../UI/Form/Input.styles';
+import Icon from '../UI/Icons/icons';
+import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
+import ErrorBox from '../UI/Form/ErrorBox.styles';
+import Tags from './Tags';
+
 import {
 	validatePostName,
 	validatePostMail,
 	validatePostMobile,
 	validatePostPost,
+	validatePostTag,
 } from '../lib/validation';
-import Icon from '../UI/Icons/icons';
-import ButtonSubmit from '../UI/Form/Button/Submitbutton.styles';
-import ErrorBox from '../UI/Form/ErrorBox.styles';
-import { useRouter } from 'next/router';
-import { useSWRConfig } from 'swr';
 
-export default function Form({ onSetFormActiveFalse }) {
-	const [nameValue, setNameValue] = useState('');
-	const [postValue, setPostValue] = useState('');
-	const [mailValue, setMailValue] = useState('');
-	const [mobileValue, setMobileValue] = useState('');
+export default function Form({ isAddButtonClicked, onToggleAddButton }) {
+	const initialValueState = {
+		nameValue: '',
+		postValue: '',
+		mailValue: '',
+		mobileValue: '',
+	};
+	const [values, setValues] = useState(initialValueState);
 	const [isError, setIsError] = useState(false);
+	const [isTagError, setIsTagError] = useState(false);
+	const [resetTags, setResetTags] = useState(false);
+	const [tag, setTag] = useState([]);
 	const router = useRouter();
 	const { mutate } = useSWRConfig();
 
@@ -28,47 +37,75 @@ export default function Form({ onSetFormActiveFalse }) {
 		event.preventDefault();
 		let post_date = new Date().getTime();
 		if (
-			validatePostMobile(mobileValue) &&
-			validatePostMail(mailValue) &&
-			validatePostName(nameValue) &&
-			validatePostPost(postValue)
+			validatePostMobile(values.mobileValue) &&
+			validatePostMail(values.mailValue) &&
+			validatePostName(values.nameValue) &&
+			validatePostPost(values.postValue) &&
+			validatePostTag(tag)
 		) {
 			const _response = await fetch('api/post/create', {
 				method: 'POST',
 				body: JSON.stringify({
-					name: nameValue,
-					post: postValue,
-					mail: mailValue,
-					mobile: mobileValue,
+					name: values.nameValue,
+					post: values.postValue,
+					mail: values.mailValue,
+					mobile: values.mobileValue,
 					postDate: post_date,
+					tags: tag,
 				}),
 			});
 			mutate('/api/posts');
-			setNameValue('');
-			setPostValue('');
-			setMailValue('');
-			setMobileValue('');
-			onSetFormActiveFalse();
-			setIsError(false);
+			onToggleAddButton();
+			resetForm();
 			router.push('/posts');
+		} else if (!tag.length > 0) {
+			setIsTagError(true);
 		} else {
 			setIsError(true);
 		}
+	}
+
+	function setTagState(item) {
+		setTag([...tag, item]);
+	}
+
+	function deleteTag(item) {
+		setTag(tag.filter(tag => tag !== item));
+	}
+
+	useEffect(() => {
+		resetForm();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isAddButtonClicked]);
+
+	function resetForm() {
+		setValues(initialValueState);
+		setIsError(false);
+		setIsTagError(false);
+		setTag([]);
+		setResetTags(!resetTags);
 	}
 
 	return (
 		<section>
 			<FormStyled onSubmit={event => handleSubmit(event)}>
 				{isError && <ErrorBox>You have an error in your form. </ErrorBox>}
+				{isTagError && <ErrorBox>You must choose at least one tag. </ErrorBox>}
+				<Tags
+					tag={tag}
+					resetTags={resetTags}
+					onSetTagState={item => setTagState(item)}
+					onDeleteTag={item => deleteTag(item)}
+				/>
 				<Label htmlFor="Username">Username</Label>
 				<Input
 					required
 					name="Username"
 					type="text"
 					id="Username"
-					value={nameValue}
+					value={values.nameValue}
 					onChange={event => {
-						setNameValue(event.target.value);
+						setValues({ ...values, nameValue: event.target.value });
 					}}
 				/>
 
@@ -80,9 +117,9 @@ export default function Form({ onSetFormActiveFalse }) {
 					type="text"
 					id="post"
 					placeholder="max. 250 characters"
-					value={postValue}
+					value={values.postValue}
 					onChange={event => {
-						setPostValue(event.target.value);
+						setValues({ ...values, postValue: event.target.value });
 					}}
 				/>
 
@@ -93,9 +130,9 @@ export default function Form({ onSetFormActiveFalse }) {
 					type="Mail"
 					id="Mail"
 					placeholder="John.Doe@google.com"
-					value={mailValue}
+					value={values.mailValue}
 					onChange={event => {
-						setMailValue(event.target.value);
+						setValues({ ...values, mailValue: event.target.value });
 					}}
 				/>
 
@@ -105,9 +142,9 @@ export default function Form({ onSetFormActiveFalse }) {
 					name="Mobile"
 					type="Mobile"
 					id="Mobile"
-					value={mobileValue}
+					value={values.mobileValue}
 					onChange={event => {
-						setMobileValue(event.target.value);
+						setValues({ ...values, mobileValue: event.target.value });
 					}}
 				/>
 				<ButtonSubmit type="submit">

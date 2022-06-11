@@ -1,3 +1,4 @@
+//import { SessionProvider } from 'next-auth/react';
 import Layout from '../src/Components/Layout';
 import GlobalStyle from '../src/Components/UI/GlobalStyle';
 
