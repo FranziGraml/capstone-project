@@ -4,10 +4,9 @@ const ButtonDelete = styled.button`
 	border: none;
 	background: none;
 	display: flex;
-	padding: 5px 6px;
 	cursor: pointer;
 	position: absolute;
-	left: 15rem;
+	left: 19rem;
 	color: var(--bright-green);
 	&:hover {
 		color: var(--light-green);

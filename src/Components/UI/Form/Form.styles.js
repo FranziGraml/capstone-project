@@ -5,7 +5,8 @@ const FormStyled = styled.form`
 	border: 1px solid var(--primary-cream);
 	border-radius: 1rem;
 	padding: 1rem;
-	margin: 1rem 0;
+	margin: 0 0 0.5rem 0;
+	width: 360px;
 	background-color: var(--light-orange);
 `;
 

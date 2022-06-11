@@ -90,7 +90,6 @@ export default function RenderPosts() {
 			{showFilteredOrAll().map(post => (
 				<RenderPostCardList key={post.id}>
 					<PostCard
-						/* user={post.user} */
 						name={post.name}
 						content={post.content}
 						mail={post.mail}
