@@ -2,15 +2,14 @@ import Headline from '../src/Components/UI/Home/Headline.styles';
 import Text from '../src/Components/UI/Home/Text.styles';
 import HeaderContent from '../src/Components/UI/Home/HeaderContent.styles';
 import Link from 'next/link';
-//import { useSession } from 'next-auth/react';
-
+import { useSession } from 'next-auth/react';
+import LoginButton from '../src/Components/Login/LoginButton';
 import Container from '../src/Components/UI/Home/Container.styles';
 import NavLink from '../src/Components/UI/Home/NavLink.styles';
-//import styled from 'styled-components';
 import Icon from '../src/Components/UI/Icons/icon.svg';
 
 export default function Home() {
-	//const { data: session } = useSession();
+	const { data: session } = useSession();
 	return (
 		<section>
 			<Container>
@@ -24,10 +23,10 @@ export default function Home() {
 				<NavLink>Start</NavLink>
 			</Link>
 
-			{/* 	<div>
-					{session ? <p>Great! You are signed in!</p> : <p>Please sign in.</p>}
-					{LoginButton()}
-				</div> */}
+			<div>
+				{session ? <p>Great! You are signed in!</p> : <p>Please sign in.</p>}
+				{LoginButton()}
+			</div>
 		</section>
 	);
 }
